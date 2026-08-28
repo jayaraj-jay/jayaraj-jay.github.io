@@ -1,0 +1,1 @@
+import{a as t}from"./chunk-XFNAMS6X.js";import{a as r}from"./chunk-3WG2WLZ4.js";var e=class extends t{constructor(o){super(o),this.type="KeyUp"}getClassName(){return"FlowGraphKeyUpEventBlock"}};r("FlowGraphKeyUpEventBlock",e);export{e as a};

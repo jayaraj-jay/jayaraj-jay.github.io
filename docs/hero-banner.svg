@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141539"/>
+      <stop offset="0.55" stop-color="#241a55"/>
+      <stop offset="1" stop-color="#103a60"/>
+    </linearGradient>
+    <radialGradient id="g1" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#4b45f0" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#4b45f0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#e8368f" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#e8368f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g3" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2fc6e8" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#2fc6e8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.7" fill="#ffffff" opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <ellipse cx="1010" cy="30" rx="360" ry="300" fill="url(#g1)"/>
+  <ellipse cx="120" cy="300" rx="360" ry="260" fill="url(#g2)"/>
+  <ellipse cx="650" cy="20" rx="300" ry="220" fill="url(#g3)"/>
+
+  <!-- Floating dev symbols and shapes -->
+  <g font-family="'IBM Plex Mono', ui-monospace, monospace" fill="#ffffff">
+    <text x="150" y="120" font-size="90" opacity="0.06" font-weight="700">&lt;/&gt;</text>
+    <text x="540" y="250" font-size="70" opacity="0.06" font-weight="700">{ }</text>
+    <text x="1090" y="270" font-size="56" opacity="0.07" font-weight="700">( )</text>
+  </g>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.1">
+    <circle cx="470" cy="70" r="22"/>
+    <rect x="360" y="200" width="26" height="26" rx="6" transform="rotate(20 373 213)"/>
+    <circle cx="1140" cy="120" r="14"/>
+    <rect x="250" y="60" width="16" height="16" rx="4" transform="rotate(-15 258 68)"/>
+  </g>
+
+  <!-- Floating code-editor window (right side, clear of the avatar) -->
+  <g transform="translate(720 58)">
+    <rect x="0" y="0" width="412" height="188" rx="16" fill="#1a1c42" stroke="#ffffff" stroke-opacity="0.1"/>
+    <rect x="0" y="0" width="412" height="34" rx="16" fill="#22254f"/>
+    <rect x="0" y="18" width="412" height="16" fill="#22254f"/>
+    <circle cx="22" cy="17" r="5.5" fill="#ff5f56"/>
+    <circle cx="42" cy="17" r="5.5" fill="#ffbd2e"/>
+    <circle cx="62" cy="17" r="5.5" fill="#27c93f"/>
+    <text x="380" y="21" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-size="12" fill="#8a90c8" opacity="0.7">app.ts</text>
+
+    <!-- Abstract code lines (rounded bars) -->
+    <g>
+      <rect x="24" y="56"  width="46"  height="9" rx="4.5" fill="#b58bff"/>
+      <rect x="78" y="56"  width="120" height="9" rx="4.5" fill="#74e0b0"/>
+      <rect x="24" y="78"  width="30"  height="9" rx="4.5" fill="#5ecde8"/>
+      <rect x="62" y="78"  width="90"  height="9" rx="4.5" fill="#8a90c8" opacity="0.6"/>
+      <rect x="160" y="78" width="60"  height="9" rx="4.5" fill="#e8368f" opacity="0.8"/>
+      <rect x="44" y="100" width="52"  height="9" rx="4.5" fill="#b58bff"/>
+      <rect x="104" y="100" width="150" height="9" rx="4.5" fill="#74e0b0"/>
+      <rect x="44" y="122" width="70"  height="9" rx="4.5" fill="#5ecde8"/>
+      <rect x="122" y="122" width="44" height="9" rx="4.5" fill="#8a90c8" opacity="0.6"/>
+      <rect x="24" y="144" width="34"  height="9" rx="4.5" fill="#b58bff"/>
+      <rect x="66" y="144" width="110" height="9" rx="4.5" fill="#8a90c8" opacity="0.6"/>
+    </g>
+  </g>
+</svg>

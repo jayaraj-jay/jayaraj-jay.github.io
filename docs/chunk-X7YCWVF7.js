@@ -1,0 +1,75 @@
+import{a as v}from"./chunk-LYCGGJKX.js";import{a as c}from"./chunk-4RPJX7DL.js";import{a as p}from"./chunk-BPYSNTP3.js";import{a as m}from"./chunk-UUB66VZW.js";import{a as f}from"./chunk-VC4UBX4J.js";import{a as o}from"./chunk-6PPGA4RJ.js";import{a}from"./chunk-VTXXMZW4.js";import{a as d}from"./chunk-D5DIT5WS.js";import{a as r}from"./chunk-RAWMMZSM.js";import{a as n}from"./chunk-OSASDBBY.js";import{a as s}from"./chunk-A3MTVNWG.js";import{a as u}from"./chunk-OM7IAYRV.js";import{a as e}from"./chunk-L3UYHT7M.js";var i="glowMapGenerationVertexShader",x=`attribute position: vec3f;
+#include<bonesDeclaration>
+#include<bakedVertexAnimationDeclaration>
+#include<morphTargetsVertexGlobalDeclaration>
+#include<morphTargetsVertexDeclaration>[0..maxSimultaneousMorphTargets]
+#include<clipPlaneVertexDeclaration>
+#include<instancesDeclaration>
+uniform viewProjection: mat4x4f;varying vPosition: vec4f;
+#ifdef UV1
+attribute uv: vec2f;
+#endif
+#ifdef UV2
+attribute uv2: vec2f;
+#endif
+#ifdef DIFFUSE
+varying vUVDiffuse: vec2f;uniform diffuseMatrix: mat4x4f;
+#endif
+#ifdef OPACITY
+varying vUVOpacity: vec2f;uniform opacityMatrix: mat4x4f;
+#endif
+#ifdef EMISSIVE
+varying vUVEmissive: vec2f;uniform emissiveMatrix: mat4x4f;
+#endif
+#ifdef VERTEXALPHA
+attribute color: vec4f;varying vColor: vec4f;
+#endif
+#define CUSTOM_VERTEX_DEFINITIONS
+@vertex
+fn main(input : VertexInputs)->FragmentInputs {var positionUpdated: vec3f=vertexInputs.position;
+#ifdef UV1
+var uvUpdated: vec2f=vertexInputs.uv;
+#endif
+#ifdef UV2
+var uv2Updated: vec2f=vertexInputs.uv2;
+#endif
+#include<morphTargetsVertexGlobal>
+#include<morphTargetsVertex>[0..maxSimultaneousMorphTargets]
+#include<instancesVertex>
+#include<bonesVertex>
+#include<bakedVertexAnimation>
+var worldPos: vec4f=finalWorld* vec4f(positionUpdated,1.0);
+#ifdef CUBEMAP
+vertexOutputs.vPosition=worldPos;vertexOutputs.position=uniforms.viewProjection*finalWorld* vec4f(vertexInputs.position,1.0);
+#else
+vertexOutputs.vPosition=uniforms.viewProjection*worldPos;vertexOutputs.position=vertexOutputs.vPosition;
+#endif
+#ifdef DIFFUSE
+#ifdef DIFFUSEUV1
+vertexOutputs.vUVDiffuse= (uniforms.diffuseMatrix* vec4f(uvUpdated,1.0,0.0)).xy;
+#endif
+#ifdef DIFFUSEUV2
+vertexOutputs.vUVDiffuse= (uniforms.diffuseMatrix* vec4f(uv2Updated,1.0,0.0)).xy;
+#endif
+#endif
+#ifdef OPACITY
+#ifdef OPACITYUV1
+vertexOutputs.vUVOpacity= (uniforms.opacityMatrix* vec4f(uvUpdated,1.0,0.0)).xy;
+#endif
+#ifdef OPACITYUV2
+vertexOutputs.vUVOpacity= (uniforms.opacityMatrix* vec4f(uv2Updated,1.0,0.0)).xy;
+#endif
+#endif
+#ifdef EMISSIVE
+#ifdef EMISSIVEUV1
+vertexOutputs.vUVEmissive= (uniforms.emissiveMatrix* vec4f(uvUpdated,1.0,0.0)).xy;
+#endif
+#ifdef EMISSIVEUV2
+vertexOutputs.vUVEmissive= (uniforms.emissiveMatrix* vec4f(uv2Updated,1.0,0.0)).xy;
+#endif
+#endif
+#ifdef VERTEXALPHA
+vertexOutputs.vColor=vertexInputs.color;
+#endif
+#include<clipPlaneVertex>
+}`;e.ShadersStoreWGSL[i]||(e.ShadersStoreWGSL[i]=x);var l=[r,o,v,c,n,f,p,m,a,s,d,u];for(let t of l)e.IncludesShadersStoreWGSL[t.name]||(e.IncludesShadersStoreWGSL[t.name]=t.shader);var W={name:i,shader:x};export{W as a};
